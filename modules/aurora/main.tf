@@ -28,8 +28,8 @@ resource "aws_rds_cluster" "postgres" {
 
   deletion_protection = true
 
-  master_username = var.project_name
-  master_password = random_password.password.result
+  master_username = "test"
+  master_password = "test"
   database_name = var.project_name
 
   db_subnet_group_name = aws_db_subnet_group.db_subnet_group.id
@@ -86,20 +86,25 @@ resource "aws_secretsmanager_secret_version" "db_credentials_secret_version" {
 
 
 resource "aws_security_group" "db_sg" {
+  name = "${var.prefix}-db-sg"
   name_prefix = "db-"
 
   vpc_id = var.vpc_id
 
-  ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
+    ingress {
+    description      = "PG connection"
+    from_port        = 5432
+    to_port          = 5432
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 
   egress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 }
