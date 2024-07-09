@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-3"
+  region = "eu-north-1"
 }
 
 terraform {
@@ -7,7 +7,7 @@ terraform {
     organization = "dziioniis-organization"
 
     workspaces {
-      name = "dev"
+      tags = ["dziioniis"]
     }
   }
 
