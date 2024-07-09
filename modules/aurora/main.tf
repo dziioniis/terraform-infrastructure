@@ -29,7 +29,7 @@ resource "aws_rds_cluster" "postgres" {
   deletion_protection = true
 
   master_username = "test"
-  master_password = "test"
+  master_password = random_password.password.result
   database_name = var.project_name
 
   db_subnet_group_name = aws_db_subnet_group.db_subnet_group.id
