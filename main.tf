@@ -17,14 +17,6 @@ terraform {
      version = "5.50.0"
    }
  }
-
-  backend "s3" {
-    bucket = "terraform-state-bucket-dziioniis"
-    key = "terraform.tfstate"
-    region = "eu-west-1"
-    encrypt = true
-    secret_key = "SgWXBE1YznOClfsCuST99MMW4DL+Cp5GJjxCTNsM"
-  }
 }
 
 module "networking" {
