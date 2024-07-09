@@ -5,11 +5,11 @@ variable "project_name" {
 
 variable "region" {
   type        = string
-  default     = "eu-west-2"
+  default     = "eu-west-3"
 }
 
 locals {
-  region = "eu-west-2"
+  region = "eu-west-3"
   project_name = "dziioniis"
   prefix = "${terraform.workspace}-${local.project_name}"
 }
