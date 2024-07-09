@@ -48,6 +48,8 @@ resource "aws_rds_cluster_instance" "cluster_instance_1" {
   instance_class = "db.t3.medium"
   engine = aws_rds_cluster.postgres.engine
   engine_version = aws_rds_cluster.postgres.engine_version
+
+  publicly_accessible = true
 #   db_parameter_group_name = var.is_localstack ? null :aws_db_parameter_group.default[0].id // bugbug, localstack: Invalid type when serializing DBParameterGroupStatus
 #   auto_minor_version_upgrade = false
 #   performance_insights_enabled = terraform.workspace == "prod" ? true : false
