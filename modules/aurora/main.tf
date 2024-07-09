@@ -28,7 +28,7 @@ resource "aws_rds_cluster" "postgres" {
 
   deletion_protection = true
 
-  master_username = "test"
+  master_username = "dziioniis"
   master_password = random_password.password.result
   database_name = var.project_name
 
@@ -50,15 +50,6 @@ resource "aws_rds_cluster_instance" "cluster_instance_1" {
   engine_version = aws_rds_cluster.postgres.engine_version
 
   publicly_accessible = true
-#   db_parameter_group_name = var.is_localstack ? null :aws_db_parameter_group.default[0].id // bugbug, localstack: Invalid type when serializing DBParameterGroupStatus
-#   auto_minor_version_upgrade = false
-#   performance_insights_enabled = terraform.workspace == "prod" ? true : false
-#   performance_insights_retention_period = terraform.workspace == "prod" ? 62 : null
-
-#   monitoring_interval = 30
-#   monitoring_role_arn = aws_iam_role.rds_enhanced_monitoring.arn
-
-#   ca_cert_identifier = "rds-ca-rsa2048-g1"
 }
 
 
@@ -95,7 +86,6 @@ resource "aws_security_group" "db_sg" {
     from_port        = 5432
     to_port          = 5432
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
 
