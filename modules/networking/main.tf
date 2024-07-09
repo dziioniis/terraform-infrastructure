@@ -10,6 +10,37 @@ resource "aws_vpc" "vpc" {
   }
 }
 
+resource "aws_internet_gateway" "gateway" {
+ vpc_id = aws_vpc.vpc.id
+ 
+ tags = {
+   Name = "VPC IG"
+ }
+}
+
+resource "aws_route_table" "public_route_table" {
+  vpc_id = aws_vpc.network_vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.gateway.id
+  }
+
+  tags = {
+    "Name" = "Public Route Table"
+    "VPC"  = "AWS_NETWORKING"
+  }
+}
+
+resource "aws_route_table_association" "subnet_route_table_association" {
+  route_table_id = aws_route_table.public_route_table.id
+  subnet_id      = aws_subnet.public_subnet.id
+}
+
+resource "aws_internet_gateway_attachment" "igw_vpc_attachement" {
+  internet_gateway_id = aws_internet_gateway.gateway.id
+  vpc_id              = aws_vpc.vpc.id
+}
+
 data "aws_availability_zones" "available" {
   state = "available"
 }
