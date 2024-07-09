@@ -86,7 +86,6 @@ resource "aws_secretsmanager_secret_version" "db_credentials_secret_version" {
 
 
 resource "aws_security_group" "db_sg" {
-  name = "db-sg"
   name_prefix = "db-"
 
   vpc_id = var.vpc_id
