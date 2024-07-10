@@ -5,17 +5,14 @@ variable "project_name" {
 
 variable "region" {
   type        = string
-  default     = "eu-north-1"
 }
 
 variable "workspace" {
   type        = string
-  default     = "dev"
 }
 
 variable "organization" {
   type        = string
-  default     = "dziioniis-organization"
 }
 
 locals {
