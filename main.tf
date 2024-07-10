@@ -7,7 +7,7 @@ terraform {
     organization = "dziioniis-organization"
 
     workspaces {
-      tags = ["dziioniis"]
+      name = var.workspace
     }
   }
 

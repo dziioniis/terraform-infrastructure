@@ -55,7 +55,6 @@ jobs:
               issue_number: context.issue.number,
             });
 
-            console.log("context.repo",  context.repo);
             const botComment = comments.find(comment => {
               return comment.user.type === 'Bot' && comment.body.includes('Terraform Cloud Plan Output')
             });
