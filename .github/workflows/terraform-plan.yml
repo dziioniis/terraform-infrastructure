@@ -6,7 +6,7 @@ on:
 env:
   TF_CLOUD_ORGANIZATION: "dziioniis-organization"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "dev"
+  TF_WORKSPACE: "${{ github.base_ref }}"
   CONFIG_DIRECTORY: "./"
 
 jobs:
@@ -55,7 +55,6 @@ jobs:
               issue_number: context.issue.number,
             });
 
-            console.log("context.repo",  context.repo);
             const botComment = comments.find(comment => {
               return comment.user.type === 'Bot' && comment.body.includes('Terraform Cloud Plan Output')
             });
