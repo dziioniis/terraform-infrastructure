@@ -21,7 +21,7 @@ module "networking" {
 
 module "postgres" {
    source  = "./modules/aurora"
-   project_name = var.project_name 
+   project_name = local.project_name 
    prefix = local.prefix
    subnet_ids = [module.networking.public_subnet_id, module.networking.private_subnet_id]
    vpc_id = module.networking.vpc_id

@@ -1,13 +1,9 @@
-variable "project_name" {
+variable "PROJECT_NAME" {
   type        = string
   default     = "dziioniis"
 }
 
-variable "region" {
-  type        = string
-}
-
-variable "workspace" {
+variable "REGION" {
   type        = string
 }
 
@@ -16,7 +12,7 @@ variable "organization" {
 }
 
 locals {
-  region = var.region
+  region = var.REGION
   project_name = "dziioniis"
   prefix = "${terraform.workspace}-${local.project_name}"
   organization = var.organization
