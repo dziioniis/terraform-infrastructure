@@ -3,7 +3,7 @@ variable "PROJECT_NAME" {
   default     = "dziioniis"
 }
 
-variable "REGION" {
+variable "region" {
   type        = string
 }
 
