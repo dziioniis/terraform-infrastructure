@@ -26,6 +26,7 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: ${{ env.CONFIG_DIRECTORY }}
+          organization: ${{ env.TF_CLOUD_ORGANIZATION }}
           speculative: true
 
       - name: Create Plan Run
@@ -34,6 +35,7 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
+          organization: ${{ env.TF_CLOUD_ORGANIZATION }}
           plan_only: true
 
       - name: Get Plan Output

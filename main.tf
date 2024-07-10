@@ -1,14 +1,10 @@
 provider "aws" {
-  region = "eu-north-1"
+  region = local.region
 }
 
 terraform {
   cloud {
-    organization = "dziioniis-organization"
-
-    workspaces {
-      name = var.workspace
-    }
+    organization = local.organization
   }
 
  required_providers {
