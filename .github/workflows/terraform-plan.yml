@@ -8,12 +8,13 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "${{ github.base_ref }}"
   CONFIG_DIRECTORY: "./"
-  REGION: "eu-central-1"
 
 jobs:
   terraform:
     name: "Terraform Plan"
     runs-on: ubuntu-latest
+    env: 
+     TF_VAR_region: "eu-central-1"
     permissions:
       contents: read
       pull-requests: write
