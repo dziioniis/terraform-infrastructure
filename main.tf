@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   cloud {
-    organization = local.organization
+    organization = "dziioniis-organization"
   }
 
  required_providers {
