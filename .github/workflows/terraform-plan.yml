@@ -13,8 +13,6 @@ jobs:
   terraform:
     name: "Terraform Plan"
     runs-on: ubuntu-latest
-    env: 
-     TF_VAR_region: "eu-central-1"
     permissions:
       contents: read
       pull-requests: write
