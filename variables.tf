@@ -5,6 +5,7 @@ variable "PROJECT_NAME" {
 
 variable "region" {
   type        = string
+  default = ""
 }
 
 locals {
