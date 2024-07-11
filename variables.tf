@@ -3,10 +3,7 @@ variable "PROJECT_NAME" {
   default     = "dziioniis"
 }
 
-variable "region" {
-  type        = string
-  default = ""
-}
+variable "region" {}
 
 locals {
   region = var.region
