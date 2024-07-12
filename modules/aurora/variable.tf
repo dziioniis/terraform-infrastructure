@@ -2,6 +2,10 @@ variable project_name {
   type = string
 }
 
+variable "database_username" {
+  type = string
+}
+
 variable prefix {
   type = string
 }
@@ -15,5 +19,9 @@ variable vpc_id {
 }
 
 variable "vpc_cidr_block" {
+  type = string
+}
+
+variable "db_instance_class" {
   type = string
 }

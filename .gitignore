@@ -1,1 +1,4 @@
 .terraform
+tfplan
+node_modules
+.env

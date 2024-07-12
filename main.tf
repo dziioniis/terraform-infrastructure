@@ -26,4 +26,6 @@ module "postgres" {
    subnet_ids = [module.networking.public_subnet_id, module.networking.private_subnet_id]
    vpc_id = module.networking.vpc_id
    vpc_cidr_block = module.networking.vpc_cidr_block
+   database_username = local.database_username
+   db_instance_class = local.db_instance_class
 }
