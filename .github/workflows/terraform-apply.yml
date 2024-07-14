@@ -34,8 +34,8 @@ jobs:
         id: apply-run
         with:
           workspace: ${{ env.TF_WORKSPACE }}
-          organization: ${{ env.TF_CLOUD_ORGANIZATION }}
           configuration_version: ${{ steps.apply-upload.outputs.configuration_version_id }}
+          organization: ${{ env.TF_CLOUD_ORGANIZATION }}
 
       - name: Apply
         uses: hashicorp/tfc-workflows-github/actions/apply-run@v1.0.0

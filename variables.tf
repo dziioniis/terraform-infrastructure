@@ -1,26 +1,23 @@
 variable "project_name" {
-  type        = string
-  default     = "dziioniis"
+  type = string
 }
 
 variable "region" {
-  type        = string
-  default     = "eu-north-1"
+  type = string
 }
 
-variable "workspace" {
-  type        = string
-  default     = "dev"
+variable "database_username" {
+  type = string
 }
 
-variable "organization" {
-  type        = string
-  default     = "dziioniis-organization"
+variable "db_instance_class" {
+  type = string
 }
 
 locals {
   region = var.region
-  project_name = "dziioniis"
+  project_name = var.project_name
   prefix = "${terraform.workspace}-${local.project_name}"
-  organization = var.organization
+  database_username = var.database_username
+  db_instance_class = var.db_instance_class
 }

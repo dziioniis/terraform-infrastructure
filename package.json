@@ -1,0 +1,13 @@
+{
+  "name": "terraform-infrastructure",
+  "version": "1.0.0",
+  "description": "This repository is dedicated to deploying and managing AWS infrastructure using Terraform",
+  "scripts": {
+    "init": "./scripts/tf-init.sh",
+    "build": "./scripts/tf-plan.sh",
+    "deploy": "./scripts/tf-apply.sh"
+  },
+  "keywords": [],
+  "author": "Dzianis Stayehlazau",
+  "license": "ISC"
+}

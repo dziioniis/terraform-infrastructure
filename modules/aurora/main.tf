@@ -28,7 +28,7 @@ resource "aws_rds_cluster" "postgres" {
 
   deletion_protection = true
 
-  master_username = "dziioniis"
+  master_username = var.database_username
   master_password = random_password.password.result
   database_name = var.project_name
 
@@ -38,14 +38,14 @@ resource "aws_rds_cluster" "postgres" {
 
   apply_immediately = true
 
-#   backtrack_window = 0
+  backtrack_window = 0
 
   final_snapshot_identifier = var.prefix
 }
 
 resource "aws_rds_cluster_instance" "cluster_instance_1" {
   cluster_identifier = aws_rds_cluster.postgres.id
-  instance_class = "db.t3.medium"
+  instance_class = var.db_instance_class
   engine = aws_rds_cluster.postgres.engine
   engine_version = aws_rds_cluster.postgres.engine_version
 
