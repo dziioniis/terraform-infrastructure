@@ -54,11 +54,11 @@ resource "aws_rds_cluster_instance" "cluster_instance_1" {
 
 
 resource "aws_secretsmanager_secret" "db_credentials" {
-  name = "${terraform.workspace}--${var.project_name}--rds-db-credentials"
+  name = "${var.prefix}--rds-db-credentials"
   recovery_window_in_days = 7
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
